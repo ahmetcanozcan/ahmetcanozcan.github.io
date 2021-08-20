@@ -1,0 +1,33 @@
+.title {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4rem;
+
+  height: 8rem;
+  
+
+  text-align: center;
+  width: 100%;
+
+
+  color: #5d22d3;
+}
+
+.title:global(.invert) {
+  color: white;
+}
+
+.title:global(.small) {
+  font-size: 3rem !important;
+  height: 5rem;
+  margin: 0;
+  text-align: left;
+}
+
+
+@media (max-width: 1000px) {
+  .title {
+    font-size: 2.3rem;
+  }
+}

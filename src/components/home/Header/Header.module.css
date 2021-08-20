@@ -1,0 +1,153 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  padding-top: 25vh;
+  position: relative;
+  z-index: 15 !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.banner {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 8rem;
+  line-height: 85%;
+  font-weight: 700;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.banner .subtitle {
+  font-size: 27%;
+  line-height: 150%;
+  letter-spacing: 0.4rem;
+  font-weight: 400;
+  opacity: 0.7;
+  letter-spacing: 0.4rem;
+}
+
+.ppWrapper {
+  width: 25%;
+  display: block;
+  max-width: 600px;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+
+.pp {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.199);
+}
+
+.pp .pp-title {  
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #555;
+}
+
+.bg {
+  width: 100%;
+  height: 100% !important;
+  z-index: 0 !important;
+  height: auto;
+  position: absolute;
+  transition: 300ms;
+  background-color: #5d22d3;
+  clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+  top: 0;
+  left: 0;
+}
+
+
+:global(.page-ready) .bg {
+  animation: bg-anim;
+  animation-delay: 0.2s;
+  animation-duration: 350ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+:global(.page-ready) .ppWrapper {
+  animation: pp-anim;
+  animation-delay: 0.7s;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+:global(.page-ready) .banner {
+  animation: banner-anim;
+  animation-delay: 0.7s;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bg-anim {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 65%);
+  }
+}
+
+@keyframes banner-anim {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pp-anim {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 0 1.4rem;
+    padding-top: 15vh;
+    display: block;
+  }
+
+  .ppWrapper {
+    margin-top: 3rem;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+
+  .banner {
+    font-size: 4rem;
+    letter-spacing: 105%;
+  }
+
+  @keyframes bg-anim {
+    0% {
+      clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+    }
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 60%, 0 70%);
+    }
+  }
+}

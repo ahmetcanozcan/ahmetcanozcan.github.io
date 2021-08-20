@@ -1,0 +1,178 @@
+.container {
+  display: grid;
+  width: 100%;
+  max-width: 1200px !important;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  gap: 10rem !important;
+  grid-template-columns: 40% auto;
+}
+
+.wrapper {
+  background-color: #5d22d3;
+  padding-top: 10vh;
+  margin-top: 15vh;
+  clip-path: polygon(0 17%, 100% 0, 100% 100%, 0% 100%);
+  color: white;
+}
+
+.left :global(.content) {
+  display: flex;
+  flex-direction: column;
+}
+
+.left a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.left a:hover {
+  text-decoration: underline;
+}
+
+.left :global(.content-header) {
+  font-size: 150%;
+  opacity: 0.7;
+  line-height: 0.1rem;
+}
+
+.icon {
+  display: inline-block;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.icon img {
+  width: 100%;
+}
+
+.icon img {
+  color: white;
+}
+
+.right {
+  margin-top: 5rem;
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 1px 2px 5px 1px #8b534980;
+  transition: 0.3s;
+}
+
+.right:global(.submitting) {
+  transform: scale(0.1);
+  animation: rotation-anim 500ms infinite;
+  animation-delay: 300ms;
+}
+
+@keyframes rotation-anim {
+  from {
+    transform: scale(.1) rotate(0deg);
+  }
+  to {
+    transform: scale(.1) rotate(360deg);
+  }
+}
+
+.right * {
+  transition: 0.3s;
+}
+
+.right:global(.submitting) * {
+  opacity: 0;
+}
+
+.right h2 {
+  color: #5d22d3;
+}
+.right h2::after {
+  content: '.';
+  color: red;
+  display: inline-block;
+  transform: translateX(-0.4rem);
+}
+
+.right button {
+  border: none;
+  padding: 0.4rem 1rem;
+  background-color: #ff7e67;
+  color: white;
+  font-size: 1.4rem;
+  box-shadow: 1px 1px solid rgba(128, 128, 128, 0.349);
+  cursor: pointer;
+  transition: 300ms;
+}
+.right button:enabled:hover {
+  transform: scale(1.1) rotate(-8deg);
+}
+
+.right button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.inputBox {
+  position: relative;
+  width: 100%;
+}
+
+.inputBox input,
+.inputBox textarea {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 1rem;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #5d22d3;
+  outline: none;
+  resize: none;
+}
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span,
+.inputBox textarea:focus ~ span,
+.inputBox textarea:valid ~ span {
+  color: #263849;
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+
+.message {
+  text-align: center;
+  color: #5d22d3;
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+
+.message img {
+  width: 30%;
+  height: auto;
+}
+
+
+@media (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .wrapper {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+  }
+} 
